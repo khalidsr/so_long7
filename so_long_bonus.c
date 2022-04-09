@@ -12,7 +12,7 @@
 
 #include "so_long_bonus.h"
 
-void	ft_solong(t_vars vars, char **s)
+void	ft_solong(t_vars vars, char **s, int line, int colonne)
 {
 	int	len;
 	int	len1;
@@ -29,9 +29,11 @@ void	ft_solong(t_vars vars, char **s)
 	put_colllectible(vars, s, vars.x, vars.y);
 	put_exit(vars, s, vars.x, vars.y);
 	mlx_hook(vars.mlx_win, 2, 1L << 0, ft_close, &vars);
-	mlx_hook(vars.mlx_win, 17, 1L << 17, &ft_mouse_hook, &vars);
+	mlx_hook(vars.mlx_win, 17, 1L << 17, ft_mouse_hook, &vars);
 	ft_position(&vars, s);
 	ft_pos_collecte(s);
+	ft_check_map2(s, line, colonne);
+	ft_check_map3(s, line, colonne);
 	ft_check_map(s, len, len1);
 	mlx_key_hook(vars.mlx_win, key_hook, &vars);
 	mlx_loop(vars.mlx_ptr);
@@ -55,12 +57,13 @@ int	main(int ac, char **av)
 	vars.y = (line * 70);
 	s = convert(&vars, av, fd);
 	vars.mlx_ptr = mlx_init();
+	if (vars.mlx_ptr == NULL)
+		exit(1);
 	vars.mlx_win = mlx_new_window(vars.mlx_ptr, vars.x, vars.y, "./so_long");
 	vars.img = mlx_new_image(vars.mlx_ptr, vars.x, vars.y);
-	ft_check_map2(s, line, colonne);
-	ft_check_map3(s, line, colonne);
 	ft_check_map4(ac, av);
+	ft_check_map5(s, line);
 	put_sea(&vars, colonne, line);
-	ft_solong(vars, s);
+	ft_solong(vars, s, line, colonne);
 	return (0);
 }

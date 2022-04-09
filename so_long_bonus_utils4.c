@@ -14,7 +14,7 @@
 
 void	ft_perror(void)
 {
-	perror("Error\nmap");
+	ft_printf("Error\nmap");
 	exit(0);
 }
 
@@ -22,7 +22,7 @@ void	ft_error_fd(int fd)
 {
 	if (fd < 0)
 	{
-		perror("error\nfrom fd");
+		ft_printf("error\nfrom fd");
 		exit(1);
 	}	
 }

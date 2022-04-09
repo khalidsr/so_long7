@@ -44,3 +44,18 @@ void	ft_position(t_vars *vars, char **s)
 		i++;
 	}
 }
+
+void	ft_check_map5(char **s, int line)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] && i < line - 2)
+	{
+		if (ft_strlen(s[i]) != ft_strlen(s[i + 1]))
+			ft_perror();
+		i++;
+	}
+	if (ft_strlen(s[0]) != (ft_strlen(s[line - 1]) + 1))
+		ft_perror();
+}

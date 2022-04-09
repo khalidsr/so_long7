@@ -36,6 +36,7 @@ SRCB =  so_long_bonus.c\
       so_long_bonus_utils4.c\
       so_long_bonus_utils5.c\
       so_long_bonus_utils6.c\
+       so_long_bonus_utils7.c\
       get_next_line.c\
       get_next_line_utils.c\
       ft_printf.c\

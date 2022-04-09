@@ -118,6 +118,11 @@ void	ft_check_map3(char **s, int line, int colonne)
 
 void	ft_check_map4(int ac, char **av)
 {
-	if (ac != 2 || ft_strstr(av[1], ".ber") == 0)
+	char	*str;
+
+	if (ac != 2)
+		ft_perror();
+	str = ft_strrchr(av[1], '.');
+	if (ft_strncmp(str, ".ber", 4) != 0)
 		ft_perror();
 }

@@ -79,7 +79,7 @@ int	ft_map_line(char **av)
 	fd1 = open(av[1], O_RDWR, 0644);
 	ft_error_fd(fd1);
 	ptr = get_next_line(fd1);
-	if(!ptr)
+	if (!ptr)
 		ft_perror();
 	while (ptr)
 	{
@@ -99,7 +99,7 @@ int	ft_map_colonne(char **av)
 	fd2 = open(av[1], O_RDONLY, 0644);
 	ft_error_fd(fd2);
 	str = get_next_line(fd2);
-	if(!str)
+	if (!str)
 		ft_perror();
 	i = ft_strlen(str) - 1;
 	free(str);
@@ -114,13 +114,13 @@ char	**convert(t_vars *vars, char **av, int fd)
 	len = ft_map_line(av);
 	i = 0;
 	vars->ar = malloc(sizeof(char *) * len + 1);
-	if(!vars->ar)
-		return NULL;
+	if (!vars->ar)
+		return (NULL);
 	while (i < len)
 	{
 		vars->ar[i] = get_next_line(fd);
 		i++;
 	}
-	vars->ar[i] = get_next_line(fd);	
+	vars->ar[i] = get_next_line(fd);
 	return (vars->ar);
 }

@@ -59,3 +59,18 @@ void	ft_key(t_vars *vars)
 	mlx_string_put(vars->mlx_ptr, vars->mlx_win, 420, 0, 0x0000FF00, str);
 	free(str);
 }
+
+void	ft_check_map5(char **s, int line)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] && i < line - 2)
+	{
+		if (ft_strlen(s[i]) != ft_strlen(s[i + 1]))
+			ft_perror();
+		i++;
+	}
+	if (ft_strlen(s[0]) != (ft_strlen(s[line - 1]) + 1))
+		ft_perror();
+}

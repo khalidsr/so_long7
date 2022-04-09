@@ -12,27 +12,19 @@
 
 #include "so_long_bonus.h"
 
-int	ft_strstr(char *str, char *to_find)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	i;
-	int	j;
+	size_t			i;
+	unsigned char	*ss1;
+	unsigned char	*ss2;
 
-	if (to_find[0] == '\0')
-	{
-		return (0);
-	}
 	i = 0;
-	while (str[i] != '\0')
+	ss1 = (unsigned char *)s1;
+	ss2 = (unsigned char *)s2;
+	while ((ss1[i] || ss2[i]) && i < n)
 	{
-		j = 0;
-		while (to_find[j] == str[i + j])
-		{
-			if (to_find[j + 1] == '\0')
-			{
-				return (1);
-			}
-			j++;
-		}
+		if (ss1[i] != ss2[i])
+			return (ss1[i] - ss2[i]);
 		i++;
 	}
 	return (0);

@@ -51,7 +51,7 @@ int	ft_map_line(char **av)
 	fd1 = open(av[1], O_RDWR, 0644);
 	ft_error_fd(fd1);
 	ptr = get_next_line(fd1);
-	if(!ptr)
+	if (!ptr)
 		ft_perror();
 	while (ptr)
 	{
@@ -71,7 +71,7 @@ int	ft_map_colonne(char **av)
 	fd2 = open(av[1], O_RDONLY, 0644);
 	ft_error_fd(fd2);
 	str = get_next_line(fd2);
-	if(!str)
+	if (!str)
 		ft_perror();
 	i = ft_strlen(str) - 1;
 	free(str);
